@@ -670,11 +670,10 @@ public class RequirementImpl extends CDOObjectImpl implements Requirement {
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case RequirementsPackage.REQUIREMENT__TRACES_TO:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getTracesTo()).basicAdd(otherEnd, msgs);
-			case RequirementsPackage.REQUIREMENT__TRACES_FROM:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getTracesFrom()).basicAdd(otherEnd, msgs);
+		if(featureID==RequirementsPackage.REQUIREMENT__TRACES_TO){
+			return ((InternalEList<InternalEObject>)(InternalEList<?>)getTracesTo()).basicAdd(otherEnd, msgs);
+		}else if(featureID==RequirementsPackage.REQUIREMENT__TRACES_FROM) {
+			return ((InternalEList<InternalEObject>)(InternalEList<?>)getTracesFrom()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -686,13 +685,12 @@ public class RequirementImpl extends CDOObjectImpl implements Requirement {
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case RequirementsPackage.REQUIREMENT__CONTENTS:
-				return ((InternalEList<?>)getContents()).basicRemove(otherEnd, msgs);
-			case RequirementsPackage.REQUIREMENT__TRACES_TO:
-				return ((InternalEList<?>)getTracesTo()).basicRemove(otherEnd, msgs);
-			case RequirementsPackage.REQUIREMENT__TRACES_FROM:
-				return ((InternalEList<?>)getTracesFrom()).basicRemove(otherEnd, msgs);
+		if(featureID==RequirementsPackage.REQUIREMENT__CONTENTS){
+			return ((InternalEList<?>)getContents()).basicRemove(otherEnd, msgs);
+		}else if(featureID==RequirementsPackage.REQUIREMENT__TRACES_TO){
+			return ((InternalEList<?>)getTracesTo()).basicRemove(otherEnd, msgs);
+		}else if(featureID==RequirementsPackage.REQUIREMENT__TRACES_FROM){
+			return ((InternalEList<?>)getTracesFrom()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
