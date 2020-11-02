@@ -163,5 +163,8 @@
       }
     }
   },
-  "defaultProject": "specmate"
+  "defaultProject": "specmate",
+  "cli": {
+    "analytics": "f3e7d3f4-88af-44c8-8705-4150698e7abe"
+  }
 }
